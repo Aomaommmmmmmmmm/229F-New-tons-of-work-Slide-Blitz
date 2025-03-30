@@ -277,7 +277,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1841210475}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: FinishLine, Assembly-CSharp
         m_MethodName: 
         m_Mode: 1
@@ -871,7 +871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playButton: {fileID: 1572254354}
   creditButton: {fileID: 1303001210}
-  quitButton: {fileID: 0}
+  quitButton: {fileID: 835113859}
 --- !u!224 &1841210478 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7971520040259314034, guid: 9e9f0f2789c615641be842fb6537dad3, type: 3}
