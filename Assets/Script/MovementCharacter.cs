@@ -10,6 +10,9 @@ public class MovementCharacter : MonoBehaviour
     // อ้างอิงถึง HealthBar
     private HealthBar healthBar;
 
+    // อ้างอิงถึง UI GameOver Panel
+    [SerializeField] private GameObject gameOverPanel;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -21,6 +24,12 @@ public class MovementCharacter : MonoBehaviour
         if (healthBar != null)
         {
             healthBar.UpdateHealthBar(health, maxHealth); // เรียกใช้ฟังก์ชันอัปเดต HealthBar
+        }
+
+        // ซ่อน UI GameOver ตั้งแต่เริ่มเกม
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(false);
         }
     }
 
@@ -65,11 +74,14 @@ public class MovementCharacter : MonoBehaviour
     {
         Debug.Log("Character is dead!");
 
-        // หยุดการเคลื่อนที่
+        // หยุดการเคลื่อนไหว
         rb.linearVelocity = Vector3.zero;
 
-        // ทำให้ตัวละครหายไป
-        Destroy(gameObject); // ตัวละครหายไปจากเกมเมื่อเลือดหมด
+        // แสดง UI Game Over
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true); // แสดง UI GameOver
+        }
 
         // หยุดเวลาในเกม
         Time.timeScale = 0; // หยุดเวลา
