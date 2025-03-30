@@ -1,44 +1,44 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // ใช้สำหรับเปลี่ยนฉาก
+using UnityEngine.SceneManagement; 
 
 public class FinishLine : MonoBehaviour
 {
-    [SerializeField] private GameObject winPanel; // อ้างอิง UI ที่จะแสดง
+    [SerializeField] private GameObject winPanel; 
 
-    private bool hasFinished = false; // ใช้เพื่อป้องกันการเปิด UI ซ้ำ
+    private bool hasFinished = false; 
 
     private void Start()
     {
-        winPanel.SetActive(false); // ซ่อน UI ตอนแรก
+        winPanel.SetActive(false); 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !hasFinished) // ตรวจว่าตัวละครชนเส้นชัยไหม
+        if (other.CompareTag("Player") && !hasFinished) 
         {
-            hasFinished = true; // ตั้งค่าว่าเสร็จสิ้นแล้ว
-            winPanel.SetActive(true); // แสดง UI
-            Time.timeScale = 0; // หยุดเวลาในเกม
+            hasFinished = true; 
+            winPanel.SetActive(true); 
+            Time.timeScale = 0; 
         }
     }
 
-    // ฟังก์ชันสำหรับปุ่มต่าง ๆ
+    
     public void NextLevel()
     {
-        Time.timeScale = 1; // กลับมาเล่นตามปกติ
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // ไปด่านถัดไป
+        Time.timeScale = 1; 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
     }
 
     public void MainMenu()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("MainMenu"); // ไปที่หน้าเมนูหลัก (ใส่ชื่อ Scene ให้ตรง)
+        SceneManager.LoadScene("MainMenu"); 
     }
 
     public void Retry()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // โหลดด่านเดิมอีกครั้ง
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
     }
     public void Credit()
     {

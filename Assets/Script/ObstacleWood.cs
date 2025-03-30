@@ -5,18 +5,18 @@ public class ObstacleWood : MonoBehaviour, ICanDamage
     [SerializeField] private float health = 20f;
     [SerializeField] private GameObject hitEffectPrefab;
     [SerializeField] private float speedReduction = 1f;
-    [SerializeField] private float damageAmount = 5f; // เพิ่มตัวแปรความเสียหาย
-    [SerializeField] private AudioClip hitSound;  // เสียงเมื่อโดนยิง
-    [SerializeField] private AudioClip destroySound;  // เสียงเมื่อถูกทำลาย
-    private AudioSource audioSource;  // ตัวจัดการเสียง
+    [SerializeField] private float damageAmount = 5f; 
+    [SerializeField] private AudioClip hitSound;  
+    [SerializeField] private AudioClip destroySound;  
+    private AudioSource audioSource;  
 
     void Start()
     {
-        // หา AudioSource ที่ติดอยู่กับ GameObject นี้
+        
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
         {
-            audioSource = gameObject.AddComponent<AudioSource>();  // ถ้าไม่มี ก็สร้างใหม่
+            audioSource = gameObject.AddComponent<AudioSource>();  
         }
     }
 
@@ -24,7 +24,7 @@ public class ObstacleWood : MonoBehaviour, ICanDamage
     {
         health -= damage;
 
-        // เล่นเสียงเมื่อโดนยิง
+        
         if (hitSound != null)
         {
             audioSource.PlayOneShot(hitSound);
@@ -38,13 +38,13 @@ public class ObstacleWood : MonoBehaviour, ICanDamage
 
         if (health <= 0)
         {
-            // เล่นเสียงเมื่อถูกทำลาย
+            
             if (destroySound != null)
             {
                 audioSource.PlayOneShot(destroySound);
             }
 
-            Destroy(gameObject); // ทำลายสิ่งกีดขวางเมื่อพลังชีวิตหมด
+            Destroy(gameObject); 
         }
     }
 
@@ -55,11 +55,11 @@ public class ObstacleWood : MonoBehaviour, ICanDamage
             MovementCharacter player = collision.gameObject.GetComponent<MovementCharacter>();
             if (player != null)
             {
-                player.ReduceSpeed(speedReduction); // ลดความเร็วของตัวละคร
-                player.TakeDamage(damageAmount); // ลดเลือดของตัวละคร
+                player.ReduceSpeed(speedReduction); 
+                player.TakeDamage(damageAmount); 
             }
 
-            Destroy(gameObject); // ทำลายสิ่งกีดขวางเมื่อชน
+            Destroy(gameObject); 
         }
     }
 }

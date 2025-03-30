@@ -16,24 +16,24 @@ public class HealthBar : MonoBehaviour
         healthText.text = "Health: " + currentHealth;
     }
 
-    // ฟังก์ชันอัปเดต health bar โดยรับ currentHealth และ maxHealth จากตัวละคร
+    
     public void UpdateHealthBar(float currentHealth, float maxHealth)
     {
         this.currentHealth = currentHealth;
         this.maxHealth = maxHealth;
 
-        // แสดงผลค่าของ Health ที่อัปเดตใน HealthBar
+        
         healthText.text = "Health: " + currentHealth;
 
-        // คำนวณค่าสัดส่วนของเลือดที่เหลือ
+        
         float targetFillAmount = currentHealth / maxHealth;
         healthBarFill.fillAmount = targetFillAmount;
 
-        // เปลี่ยนสีของ health bar ตามค่าสัดส่วนของเลือด
+        
         healthBarFill.color = colorGradient.Evaluate(targetFillAmount);
     }
 
-    // ฟังก์ชันเรียกใช้เมื่อเลือดลดลงหรือเพิ่มขึ้น
+    
     public void UpdateHealth(float amount)
     {
         currentHealth += amount;
