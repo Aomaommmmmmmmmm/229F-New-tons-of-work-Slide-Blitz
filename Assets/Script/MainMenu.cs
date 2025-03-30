@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
     // กำหนดปุ่มที่ใช้ในเมนู
     [SerializeField] private Button playButton;
     [SerializeField] private Button creditButton;
+    [SerializeField] private Button quitButton; // เพิ่มปุ่มออกเกม
 
     private void Start()
     {
@@ -18,6 +19,10 @@ public class MainMenu : MonoBehaviour
         if (creditButton != null)
         {
             creditButton.onClick.AddListener(ShowCredits); // กดปุ่ม Credit
+        }
+        if (quitButton != null)
+        {
+            quitButton.onClick.AddListener(QuitGame); // กดปุ่ม Quit
         }
     }
 
@@ -33,5 +38,19 @@ public class MainMenu : MonoBehaviour
     {
         // โหลดฉากที่ชื่อว่า "CreditScene"
         SceneManager.LoadScene("Credit"); // เปลี่ยนไปที่ฉาก Credit
+    }
+
+    // ฟังก์ชันที่ทำงานเมื่อกดปุ่ม Quit
+    private void QuitGame()
+    {
+        // ออกจากเกม
+        Debug.Log("Exiting game...");
+
+        // ถ้ากำลังเล่นใน Editor จะหยุดการเล่นเกม
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit(); // ออกจากเกมในแพลตฟอร์มจริง
+#endif
     }
 }
