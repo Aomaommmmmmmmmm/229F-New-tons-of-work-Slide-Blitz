@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MovementCharacter : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 7f;
     public float health = 15f;  // เลือดของตัวละคร
     public float maxHealth = 15f; // จำนวนเลือดสูงสุดของตัวละคร
     private Rigidbody rb;

@@ -40,4 +40,9 @@ public class FinishLine : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // โหลดด่านเดิมอีกครั้ง
     }
+    public void Credit()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Credit"); 
+    }
 }
