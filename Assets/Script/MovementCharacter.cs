@@ -52,22 +52,23 @@ public class MovementCharacter : MonoBehaviour
     }
 
     
-    public void TakeDamage(float amount)
-    {
-        health -= amount;
-        health = Mathf.Clamp(health, 0, maxHealth); 
+    //public void TakeDamage(float amount)
+    //{
+    //   health -= amount;
+    //   health = Mathf.Clamp(health, 0, maxHealth); 
 
         
-        if (healthBar != null)
-        {
-            healthBar.UpdateHealthBar(health, maxHealth); 
-        }
+    //  if (healthBar != null)
+    //    {
+     //       healthBar.UpdateHealthBar(health, maxHealth); 
+    //    }
 
-        if (health <= 0)
-        {
-            Die(); 
-        }
-    }
+      //  if (health <= 0)
+    //    {
+     //       Die(); 
+    //    }
+    //}
+   
 
    
     private void Die()

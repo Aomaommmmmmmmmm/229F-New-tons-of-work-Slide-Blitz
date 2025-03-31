@@ -52,7 +52,7 @@ public class ObstacleWood : MonoBehaviour, ICanDamage
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            MovementCharacter player = collision.gameObject.GetComponent<MovementCharacter>();
+            Car player = collision.gameObject.GetComponent<Car>();
             if (player != null)
             {
                 player.ReduceSpeed(speedReduction); 
